@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Themes */
+body.vs {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.vs-dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.solarized-dark {
+  background-color: #002b36;
+  color: #839496;
+}
+
+body.solarized-light {
+  background-color: #fdf6e3;
+  color: #657b83;
+}
+
+.gutter.gutter-horizontal {
+  cursor: ew-resize;
+}
+  
