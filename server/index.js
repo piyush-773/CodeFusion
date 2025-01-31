@@ -2,8 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import fetch from "node-fetch";
-import { Buffer } from "buffer"; // For Base64 decoding
-import dotenv from "dotenv"; // For environment variables
+import { Buffer } from "buffer";
+import dotenv from "dotenv";
 
 // Load environment variables
 dotenv.config();
@@ -24,7 +24,7 @@ const getSubmissionResult = async (token) => {
   const options = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": process.env.RapidAPI_Key, // Use environment variable
+      "X-RapidAPI-Key": process.env.RapidAPI_Key,
       "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
     },
   };
@@ -53,18 +53,17 @@ app.post("/compile", async (req, res) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "X-RapidAPI-Key": process.env.RapidAPI_Key, // Use environment variable
+      "X-RapidAPI-Key": process.env.RapidAPI_Key,
       "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com",
     },
     body: JSON.stringify({
-      source_code: Buffer.from(code).toString("base64"), // Encode code in Base64
+      source_code: Buffer.from(code).toString("base64"),
       language_id: languageId,
-      stdin: Buffer.from(input || "").toString("base64"), // Encode input in Base64
+      stdin: Buffer.from(input || "").toString("base64"),
     }),
   };
 
   try {
-    // Submit code and get token
     const submitResponse = await fetch(submitUrl, submitOptions);
     const submitData = await submitResponse.json();
 
@@ -73,17 +72,15 @@ app.post("/compile", async (req, res) => {
     }
 
     const { token } = submitData;
-    console.log("Submission token:", token);
 
     // Step 2: Poll Judge0 for submission result
     let result = null;
     let attempts = 0;
-    const maxAttempts = 10; // Maximum number of polling attempts
-    const delay = 1000; // Delay between polling attempts (1 second)
+    const maxAttempts = 10;
+    const delay = 1000;
 
     while (attempts < maxAttempts) {
       result = await getSubmissionResult(token);
-      console.log("Polling result:", result);
 
       // If submission is processed, break the loop
       if (result.status?.id !== 1 && result.status?.id !== 2) {
@@ -108,7 +105,6 @@ app.post("/compile", async (req, res) => {
         compileOutput: decodeBase64(result.compile_output),
         status: result.status,
       };
-      console.log("Decoded result:", decodedResult);
 
       // Return the decoded result to the frontend
       res.json(decodedResult);

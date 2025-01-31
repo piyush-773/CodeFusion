@@ -3,7 +3,6 @@ import Select from "react-select";
 
 const SettingsPanel = ({
     language,
-    languageId,
     setLanguageId,
     setLanguage,
     theme,

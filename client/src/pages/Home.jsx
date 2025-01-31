@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import Split from "react-split";
 import CodeEditor from "../components/CodeEditor";
 import SettingsPanel from "../components/SettingsPannel";
-import dummyCode from "./dummyCode";
+import dummyCode from "../assets/dummyCode"
 
 const Home = () => {
     const [language, setLanguage] = useState("cpp");
-    const [languageId, setLanguageId] = useState(54); // Default: JavaScript (ID 63)
+    const [languageId, setLanguageId] = useState(54);
     const [theme, setTheme] = useState("light");
     const [fontSize, setFontSize] = useState(16);
     const [fontFamily, setFontFamily] = useState("Fira Code");
@@ -56,18 +56,15 @@ const Home = () => {
             });
 
             const data = await response.json();
-            console.log("Backend response:", data); // Log the response for debugging
 
-            // Update the output state with the response
             if (data.output || data.error || data.compileOutput) {
-                // Combine output and error messages
                 const combinedOutput = [
                     data.output,
                     data.error,
                     data.compileOutput,
                 ]
-                    .filter(Boolean) // Remove empty strings
-                    .join("\n"); // Join with newlines
+                    .filter(Boolean)
+                    .join("\n");
 
                 setOutput(combinedOutput);
             } else {
@@ -77,7 +74,7 @@ const Home = () => {
             console.error("Error:", error);
             setOutput("Error: Failed to compile code");
         } finally {
-            setIsRunning(false); // Reset loading state
+            setIsRunning(false);
         }
     };
 
