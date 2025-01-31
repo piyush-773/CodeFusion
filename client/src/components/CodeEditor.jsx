@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import Monaco from "@monaco-editor/react";
 import * as monaco from "monaco-editor";
 
-const CodeEditor = ({ language, theme, fontSize, fontFamily }) => {
-    const [code, setCode] = useState("");
+const CodeEditor = ({ code, setCode, language, theme, fontSize, fontFamily }) => {
     useEffect( ()=> {
       const monacoTheme = theme.replace("theme-", "");
       monaco.editor.setTheme(monacoTheme);

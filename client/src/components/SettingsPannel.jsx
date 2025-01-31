@@ -3,6 +3,8 @@ import Select from "react-select";
 
 const SettingsPanel = ({
     language,
+    languageId,
+    setLanguageId,
     setLanguage,
     theme,
     setTheme,
@@ -12,27 +14,27 @@ const SettingsPanel = ({
     setFontFamily,
 }) => {
     const languages = [
-        { value: "javascript", label: "JavaScript" },
-        { value: "python", label: "Python" },
-        { value: "cpp", label: "C++" },
-        { value: "java", label: "Java" },
-        { value: "c", label: "C" },
-        { value: "ruby", label: "Ruby" },
-        { value: "go", label: "Go" },
-        { value: "swift", label: "Swift" },
-        { value: "php", label: "PHP" },
-        { value: "typescript", label: "TypeScript" },
-        { value: "rust", label: "Rust" },
-        { value: "kotlin", label: "Kotlin" },
-        { value: "scala", label: "Scala" },
-        { value: "perl", label: "Perl" },
-        { value: "r", label: "R" },
-        { value: "dart", label: "Dart" },
-        { value: "bash", label: "Bash" },
-        { value: "sql", label: "SQL" },
-        { value: "html", label: "HTML" },
-        { value: "css", label: "CSS" },
-        { value: "shell", label: "Shell" },
+        { value: "javascript", label: "JavaScript", language_id: 63 },
+        { value: "python", label: "Python", language_id: 71 },
+        { value: "cpp", label: "C++", language_id: 54 },
+        { value: "java", label: "Java", language_id: 62 },
+        { value: "c", label: "C", language_id: 50 },
+        { value: "ruby", label: "Ruby", language_id: 72 },
+        { value: "go", label: "Go", language_id: 60 },
+        { value: "swift", label: "Swift", language_id: 83 },
+        { value: "php", label: "PHP", language_id: 68 },
+        { value: "typescript", label: "TypeScript", language_id: 74 },
+        { value: "rust", label: "Rust", language_id: 73 },
+        { value: "kotlin", label: "Kotlin", language_id: 78 },
+        { value: "scala", label: "Scala", language_id: 81 },
+        { value: "perl", label: "Perl", language_id: 85 },
+        { value: "r", label: "R", language_id: 80 },
+        { value: "dart", label: "Dart", language_id: 84 },
+        { value: "bash", label: "Bash", language_id: 76 },
+        { value: "sql", label: "SQL", language_id: 82 },
+        { value: "html", label: "HTML", language_id: 92 },
+        { value: "css", label: "CSS", language_id: 93 },
+        { value: "shell", label: "Shell", language_id: 94 },
     ];
 
     const themes = [
@@ -62,7 +64,10 @@ const SettingsPanel = ({
                 <Select
                     options={languages}
                     defaultValue={languages.find((l) => l.value === language)}
-                    onChange={(e) => setLanguage(e.value)}
+                    onChange={(e) => {
+                        setLanguage(e.value);
+                        setLanguageId(e.language_id);
+                    }}
                     className="text-black"
                 />
             </div>
