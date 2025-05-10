@@ -144,7 +144,7 @@ const Home = () => {
                     <div>
                         <h3 className="text-lg font-semibold mb-2">Output</h3>
                         <div
-                            className="w-full p-2 border rounded min-h-[100px]"
+                            className="w-full p-2 border rounded min-h-[100px] max-h-[300px] overflow-auto"
                             style={{ whiteSpace: "pre-wrap" }}
                         >
                             {output || "The output will appear here..."}
