@@ -96,7 +96,7 @@ const Home = () => {
                 sizes={[70, 30]}
                 minSize={300}
                 gutterSize={10}
-                className="flex"
+                className="flex mx-1"
                 gutter={(index, direction) => {
                     const gutter = document.createElement("div");
                     gutter.className = `gutter gutter-${direction}`;

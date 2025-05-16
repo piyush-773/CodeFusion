@@ -13,26 +13,28 @@ const SettingsPanel = ({
     setFontFamily,
 }) => {
     const languages = [
+        { value: "bash", label: "Bash", language_id: 46 },
+        { value: "c", label: "C", language_id: 50 },
+        { value: "cpp", label: "C++", language_id: 54 },
+        { value: "csharp", label: "C#", language_id: 51 },
+        { value: "java", label: "Java", language_id: 62 },
         { value: "javascript", label: "JavaScript", language_id: 63 },
         { value: "python", label: "Python", language_id: 71 },
-        { value: "cpp", label: "C++", language_id: 54 },
-        { value: "java", label: "Java", language_id: 62 },
-        { value: "c", label: "C", language_id: 50 },
         { value: "ruby", label: "Ruby", language_id: 72 },
-        { value: "go", label: "Go", language_id: 60 },
-        { value: "swift", label: "Swift", language_id: 83 },
-        { value: "php", label: "PHP", language_id: 68 },
-        { value: "typescript", label: "TypeScript", language_id: 74 },
         { value: "rust", label: "Rust", language_id: 73 },
+        { value: "typescript", label: "TypeScript", language_id: 74 },
+        { value: "go", label: "Go", language_id: 60 },
+        { value: "php", label: "PHP", language_id: 68 },
         { value: "kotlin", label: "Kotlin", language_id: 78 },
-        { value: "scala", label: "Scala", language_id: 81 },
-        { value: "perl", label: "Perl", language_id: 85 },
         { value: "r", label: "R", language_id: 80 },
-        { value: "dart", label: "Dart", language_id: 84 },
-        { value: "bash", label: "Bash", language_id: 76 },
+        { value: "scala", label: "Scala", language_id: 81 },
         { value: "sql", label: "SQL", language_id: 82 },
-        { value: "html", label: "HTML", language_id: 92 },
-        { value: "css", label: "CSS", language_id: 93 },
+        { value: "swift", label: "Swift", language_id: 83 },
+        { value: "dart", label: "Dart", language_id: 84 },
+        { value: "perl", label: "Perl", language_id: 85 },
+        { value: "elixir", label: "Elixir", language_id: 57 },
+        { value: "haskell", label: "Haskell", language_id: 61 },
+        { value: "lua", label: "Lua", language_id: 64 },
         { value: "shell", label: "Shell", language_id: 94 },
     ];
 
@@ -42,6 +44,8 @@ const SettingsPanel = ({
         { value: "hc-black", label: "High Contrast" },
         { value: "solarized-dark", label: "Solarized Dark" },
         { value: "solarized-light", label: "Solarized Light" },
+        { value: "monokai", label: "Monokai" },
+        { value: "quietlight", label: "Quiet Light" },
     ];
 
     const fonts = [
@@ -49,6 +53,8 @@ const SettingsPanel = ({
         { value: "Courier New", label: "Courier New" },
         { value: "Cascadia Code", label: "Cascadia Code" },
         { value: "Lucida Console", label: "Lucida Console" },
+        { value: "Fira Code", label: "Fira Code" },
+        { value: "Source Code Pro", label: "Source Code Pro" },
     ];
 
     useEffect(() => {
