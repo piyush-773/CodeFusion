@@ -62,7 +62,7 @@ const SettingsPanel = ({
                 <label className="block font-semibold mb-1">Language:</label>
                 <Select
                     options={languages}
-                    defaultValue={languages.find((l) => l.value === language)}
+                    value={languages.find((l) => l.value === language)}
                     onChange={(e) => {
                         setLanguage(e.value);
                         setLanguageId(e.language_id);
@@ -76,7 +76,7 @@ const SettingsPanel = ({
                 <label className="block font-semibold mb-1">Theme:</label>
                 <Select
                     options={themes}
-                    defaultValue={themes.find((t) => t.value === theme)}
+                    value={themes.find((t) => t.value === theme)}
                     onChange={(e) => setTheme(e.value)}
                     className="text-black"
                 />
@@ -100,7 +100,7 @@ const SettingsPanel = ({
                 <label className="block font-semibold mb-1">Font Style:</label>
                 <Select
                     options={fonts}
-                    defaultValue={fonts.find((f) => f.value === fontFamily)}
+                    value={fonts.find((f) => f.value === fontFamily)}
                     onChange={(e) => setFontFamily(e.value)}
                     className="text-black"
                 />
